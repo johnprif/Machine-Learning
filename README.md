@@ -1,73 +1,104 @@
 # Machine Learning Lab Exercises
 
-> A collection of hands‑on Python laboratory exercises for a university Machine Learning course, implementing image classification with Google’s TensorFlow and classical algorithms (e.g. k‑Nearest Neighbor) to compare performance and accuracy.
+> A set of hands‑on Python exercises for a University Machine Learning course, covering both classification and clustering on the Fashion‑MNIST dataset. Implements classical algorithms (k‑NN, SVM, Naïve Bayes, neural networks) and unsupervised methods (k‑Means with various distance metrics), with evaluation by accuracy, F1‑score, and purity.  
+
 
 ---
 
 ## 📋 Table of Contents
 
 1. [Overview](#overview)  
-2. [Features](#features)  
-3. [Labs & Reports](#labs--reports)  
-4. [Technologies](#technologies)  
-5. [Installation](#installation)  
-6. [Usage](#usage)  
-7. [Contributing](#contributing)  
-8. [License](#license)  
-9. [Contact](#contact)  
+2. [Lab 1: Classification](#lab--‑classification)  
+3. [Lab 2: Clustering](#lab‑2‑clustering)  
+4. [Results & Comparison](#results‑comparison)  
+5. [Technologies](#technologies)  
+6. [Installation](#installation)  
+7. [Usage](#usage)  
+8. [Contributing](#contributing)  
+9. [License](#license)  
+10. [Contact](#contact)  
 
 ---
 
 ## Overview
 
-These **Machine Learning Lab Exercises** are part of an academic curriculum in Python, designed to give students practical experience with both deep learning and classical machine‑learning methods. Students build image‑classification models using **TensorFlow**, implement algorithms such as k‑Nearest Neighbor with Euclidean distance, and then compare accuracy and performance across approaches.
+These exercises give practical experience with both supervised and unsupervised Machine Learning on the Fashion‑MNIST dataset (28×28 grayscale images of 10 clothing categories).  
+
+- **Lab 1 (Classification):** compare k‑Nearest Neighbors (Euclidean, cosine), Neural Networks (1 & 2 hidden layers), SVM (linear, RBF, cosine kernels), and Naïve Bayes; evaluate by accuracy & F1‑score.  
+- **Lab 2 (Clustering):** implement k‑Means with Euclidean (L2), Manhattan (L1) and cosine distance; evaluate by purity & F‑measure.  
+
 
 ---
 
-## 🔥 Features
+## Lab 1: Classification
 
-- **Deep Learning**: Image classification pipelines built with TensorFlow’s high‑level Keras API.  
-- **Classical ML**: Implementation of k‑NN, decision trees, and logistic regression from scratch and via scikit‑learn.  
-- **Performance Comparison**: Automated evaluation scripts compute accuracy, precision, recall, and runtime for each model.  
-- **Data Preprocessing**: Demonstrations of normalization, train/test splits, and cross‑validation.  
-- **Reporting**: Each lab includes a PDF report detailing methodology, results, and insights.  
+- **Algorithms implemented** from scratch or via scikit‑learn:  
+  - k‑NN (k=1,5,10) with Euclidean & cosine distance  
+  - Feed‑forward Neural Network (1 hidden layer K=500; 2 hidden layers K₁=500, K₂=200)  
+  - Support Vector Machine (linear, Gaussian/RBF, cosine kernels)  
+  - Naïve Bayes (Gaussian)  
+
+- **Evaluation metrics:** accuracy and weighted F1‑score on test set.
 
 ---
 
-## Labs & Reports
+## Lab 2: Clustering
 
-| Lab         | Description                                               | Report (PDF)            |
-|-------------|-----------------------------------------------------------|-------------------------|
-| Lab 1       | Image loader & preprocessing; basic TensorFlow classifier | `Lab1_report.pdf`       |
-| Lab 2       | k‑Nearest Neighbor vs. Decision Tree comparison           | `Lab2_report.pdf`       |
-| Lab 3       | Convolutional Neural Network for multi‑class recognition  | `Lab3_report.pdf`       |
-| Lab 4       | Transfer learning with pre‑trained models                 | `Lab4_report.pdf`       |
+- **k‑Means clustering** (k=10) on the same dataset, using three distance measures:  
+  1. Euclidean (L2)  
+  2. Manhattan (L1)  
+  3. Cosine (normalized to distance)  
 
-Details for each lab’s implementation and analysis are in the corresponding PDF files in the repository.  
+- **Evaluation metrics:**  
+  - **Purity**: fraction of correctly assigned points per cluster  
+  - **F‑measure** (cluster‑level F1).
+
+---
+
+## Results & Comparison
+
+### Classification (Lab 1)
+
+| Algorithm                                        | Accuracy | F1‑Score |
+|--------------------------------------------------|---------:|---------:|
+| k‑NN (Euclidean, k=5)                            | 85.54%   | 85.46%   |
+| k‑NN (Cosine, k=1)                               | 85.78%   | 85.60%   |
+| NN (1 hidden layer, 500 neurons)                 | 86.15%   | 86.12%   |
+| NN (2 hidden layers, 500–200 neurons)            | 86.89%   | 86.95%   |
+| SVM (Gaussian / RBF kernel)                      | 88.29%   | 88.24%   |
+| SVM (Linear kernel)                              | 84.63%   | 84.56%   |
+| Naïve Bayes                                      | 67.29%   | 66.00%   |
+
+> Best classification: **SVM with Gaussian kernel** (88.3% accuracy, 88.2% F1).
+
+### Clustering (Lab 2)
+
+| Distance Measure | Purity   | F‑Measure |
+|------------------|---------:|----------:|
+| Manhattan (L1)   | 0.6426   | 0.0121    |
+| Cosine           | 0.6094   | 0.0514    |
+| Euclidean (L2)   | 0.6094   | 0.0168    |
+
+> Best clustering by purity: **Manhattan distance**; by F‑measure: **Cosine distance**.
 
 ---
 
 ## Technologies
 
-| Category               | Tools & Libraries                                    |
-|------------------------|------------------------------------------------------|
-| Language               | Python 3.9+ :contentReference[oaicite:5]{index=5}                        |
-| Deep Learning          | TensorFlow 2.x, Keras             |
-| Classical ML           | scikit‑learn                     |
-| Data Manipulation      | NumPy, pandas                                        |
-| Visualization          | Matplotlib, Seaborn                                  |
-| Reporting              | LaTeX / LibreOffice for PDF reports                  |
-| Environment Management | virtualenv, pip                  |
+- **Language:** Python 3.7+  
+- **Libraries:** TensorFlow/Keras, scikit‑learn, NumPy, SciPy, Matplotlib  
+- **Environment:** PyCharm Professional, Jupyter notebooks (optional)  
+- **Tools:** virtualenv, pip  
 
 ---
 
 ## Installation
 
 1. **Clone the repository**  
-   ```bash
-   git clone https://github.com/johnprif/Machine-Learning.git
-   cd Machine-Learning
-   ```
+```bash
+git clone https://github.com/johnprif/Machine-Learning.git
+cd Machine-Learning
+```
 2. **Create & activate a virtual environment**
 ```bash
 python3 -m venv venv
@@ -80,12 +111,14 @@ pip install --upgrade pip
 pip install tensorflow scikit-learn numpy pandas matplotlib seaborn
 ```
 4. **Usage**
-- **Run a lab script** (e.g. Lab1):
+- **Run a Lab 1 (classification)**:
 ```bash
 python lab1_image_classification.py
 ```
-- **View results & plots** in the generated `outputs/` folder.
-- **Open the PDF report** for detailed methodology and performance charts.
+- **Run a Lab 2 (clustering)**:
+```bash
+python lab2_kmeans_clustering.py
+```
 
 ## Contributing
 This open‑source tool was developed for university teaching. Contributions from future students and faculty are welcome:
