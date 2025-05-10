@@ -8,9 +8,9 @@
 ## 📋 Table of Contents
 
 1. [Overview](#overview)  
-2. [Lab 1: Classification](#lab--‑classification)  
-3. [Lab 2: Clustering](#lab‑2‑clustering)  
-4. [Results & Comparison](#results‑comparison)  
+2. [Lab 1: Classification](#lab-1-classification)  
+3. [Lab 2: Clustering](#lab-2-clustering)  
+4. [Results & Comparison](#results--comparison)  
 5. [Technologies](#technologies)  
 6. [Installation](#installation)  
 7. [Usage](#usage)  
